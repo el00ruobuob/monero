@@ -182,6 +182,11 @@ namespace tools
 #endif
         return false;
       }
+      if (!command_line::is_arg_defaulted(*m_vm, wallet_args::arg_password()))
+      {
+        MERROR(arg_wallet_dir.name << " cannot be used with " << wallet_args::arg_password().name);
+        return false;
+      }
     }
 
     if (disable_auth)
